@@ -19,12 +19,32 @@ public class App {
 
 
         // StudentDao
-        //Insert operation 
-        StudentDao sd = context.getBean("studentDao", StudentDao.class);
-        Student s = new Student(1003,"Samindra","Dhaka");
+        //Insert operation
+//        StudentDao sd = context.getBean("studentDao", StudentDao.class);
+//        Student s = new Student(1003,"Samindra","Dhaka");
+//
+//        int res = sd.insert(s);
+//        System.out.println("=> Student added "+res);
 
-        int res = sd.insert(s);
-        System.out.println("=> Student added "+res);
+        // Delete operation
+//        StudentDao sd1 = context.getBean("studentDao",StudentDao.class);
+//        sd1.delete(1003);
+
+        //Update
+//        StudentDao sd0 = context.getBean("studentDao",StudentDao.class);
+//        Student student = new Student(1003,"Samindra Ferdous","Hightech");
+//
+//        int a = sd0.change(student);
+
+
+        // Single data selector
+
+        StudentDao studentdao = context.getBean("studentDao",StudentDao.class);
+        Student s = studentdao.getStudent(1001);
+        System.out.println(s);
+
+
+
 
 
     }

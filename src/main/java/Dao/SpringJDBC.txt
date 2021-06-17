@@ -1,0 +1,3 @@
+Select queries in Spring JDBC
+    => public T queryForObject( String sql,RowMapper<T> rowMapper, Object args)
+    => public List <T> query(String sql, RowMapper<T> rowMapper )
