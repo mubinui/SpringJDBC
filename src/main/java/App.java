@@ -4,6 +4,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.List;
+import java.util.ListIterator;
+
 public class App {
     public static void main(String[] args) {
         System.out.println("=> My Program Started !");
@@ -37,11 +40,26 @@ public class App {
 //        int a = sd0.change(student);
 
 
-        // Single data selector
+        // Single (object) data selector
 
-        StudentDao studentdao = context.getBean("studentDao",StudentDao.class);
-        Student s = studentdao.getStudent(1001);
-        System.out.println(s);
+//        StudentDao studentdao = context.getBean("studentDao",StudentDao.class);
+//        Student s = studentdao.getStudent(1001);
+//        System.out.println(s);
+
+        // Selecting allstudents
+        StudentDao std = context.getBean("studentDao",StudentDao.class);
+        List<Student> allStudents = std.getAllStudents();
+
+//        ListIterator<Student> e = allStudents.listIterator();
+//        while(e.hasNext()){
+//            System.out.println(e.next());
+//        }
+        //or
+        for (Student s : allStudents){
+            System.out.println(s);
+        }
+
+
 
 
 

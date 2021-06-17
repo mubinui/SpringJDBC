@@ -5,6 +5,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import java.util.List;
+
 public class StudentDaoImpel implements StudentDao{
     private  JdbcTemplate jdbcTemplate;
     @Override
@@ -49,6 +51,14 @@ public class StudentDaoImpel implements StudentDao{
         String query = "SELECT * FROM student WHERE id = ? ";
         Student student = (Student) this.jdbcTemplate.queryForObject(query,rowMapper,studentId);
         return student;
+    }
+
+    @Override
+    public List<Student> getAllStudents() {
+        // Selecting multiple students
+        String query = "SELECT * FROM student";
+        List<Student>students = this.jdbcTemplate.query(query,new RowMapperImplement());
+        return students;
     }
 
     public JdbcTemplate getJdbcTemplate() {
