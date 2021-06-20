@@ -1,6 +1,7 @@
 import Dao.StudentDao;
 import Entities.Student;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -12,7 +13,8 @@ import java.util.ListIterator;
 
 public class App {
     public static void main(String[] args) throws IOException {
-        ApplicationContext context = new ClassPathXmlApplicationContext("SpringJDBCconfig.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(JDBCConfig.class);
+        //here configuration style Configuration Class Name dot class
         StudentDao std = context.getBean("studentDao",StudentDao.class);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println(" |||| WELCOME TO STUDENT MANAGE SYSTEM ||||");
