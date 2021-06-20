@@ -1,13 +1,16 @@
 package Dao;
 
 import Entities.Student;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component("studentDao")
 public class StudentDaoImpel implements StudentDao{
+
     private  JdbcTemplate jdbcTemplate;
     @Override
     public int insert(Student student) {
@@ -55,7 +58,7 @@ public class StudentDaoImpel implements StudentDao{
         List<Student>students = this.jdbcTemplate.query(query,new RowMapperImplement());
         return students;
     }
-
+    @Autowired
     public JdbcTemplate getJdbcTemplate() {
         return jdbcTemplate;
     }
