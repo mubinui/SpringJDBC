@@ -29,9 +29,6 @@ public class StudentDaoImpel implements StudentDao{
     public void display (){
         String query = "SELECT * FROM student";
 
-
-
-
     }
 
     @Override
@@ -39,8 +36,6 @@ public class StudentDaoImpel implements StudentDao{
         // Updating query
         String query  = "UPDATE student SET name = ? , address = ? WHERE id = ? ";
         int r = this.jdbcTemplate.update(query,student.getName(),student.getAddress(),student.getId());
-
-
         return r ;
     }
 
